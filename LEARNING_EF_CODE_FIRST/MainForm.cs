@@ -23,22 +23,22 @@
 				person.EmailAddress = "DariushT";
 
 				// Solution (1)
-				//databaseContext.People.Add(person);
+				databaseContext.People.Add(person);
 
-				//databaseContext.SaveChanges();
+				databaseContext.SaveChanges();
 				// /Solution (1)
 
 				// Solution (2)
-				if (Models.Utility.IsEntityValid(databaseContext, person))
-				{
-					databaseContext.People.Add(person);
+				//if (Models.Utility.IsEntityValid(databaseContext, person))
+				//{
+				//	databaseContext.People.Add(person);
 
-					databaseContext.SaveChanges();
-				}
-				else
-				{
-					System.Windows.Forms.MessageBox.Show("Error On Model Validation!");
-				}
+				//	databaseContext.SaveChanges();
+				//}
+				//else
+				//{
+				//	System.Windows.Forms.MessageBox.Show("Error On Model Validation!");
+				//}
 				// /Solution (2)
 
 				// Solution (3)
@@ -55,19 +55,19 @@
 				//}
 				//else
 				//{
-				//	string strErrorMessages = string.Empty;
+				//	string errorMessages = string.Empty;
 
-				//	foreach (var varDatabaseValidationError in databaseValidationErrors)
+				//	foreach (var currentDatabaseValidationError in databaseValidationErrors)
 				//	{
-				//		//strErrorMessages +=
-				//		//	varDatabaseValidationError.ErrorMessage + "\n\r";
+				//		//errorMessages +=
+				//		//	currentDatabaseValidationError.ErrorMessage + "\n\r";
 
-				//		strErrorMessages +=
-				//			varDatabaseValidationError.ErrorMessage + System.Environment.NewLine;
+				//		errorMessages +=
+				//			currentDatabaseValidationError.ErrorMessage + System.Environment.NewLine;
 				//	}
 
 				//	System.Windows.Forms.MessageBox.Show
-				//		(text: strErrorMessages,
+				//		(text: errorMessages,
 				//		caption: "خطا",
 				//		buttons: System.Windows.Forms.MessageBoxButtons.OK,
 				//		icon: System.Windows.Forms.MessageBoxIcon.Error,
