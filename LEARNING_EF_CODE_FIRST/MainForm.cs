@@ -23,9 +23,9 @@
 				person.EmailAddress = "DariushT";
 
 				// Solution (1)
-				databaseContext.People.Add(person);
+				//databaseContext.People.Add(person);
 
-				databaseContext.SaveChanges();
+				//databaseContext.SaveChanges();
 				// /Solution (1)
 
 				// Solution (2)
@@ -42,39 +42,39 @@
 				// /Solution (2)
 
 				// Solution (3)
-				//var databaseValidationErrors =
-				//	Models.Utility.CheckEntityValidation(databaseContext: databaseContext, entity: person);
+				var databaseValidationErrors =
+					Models.Utility.CheckEntityValidation(databaseContext: databaseContext, entity: person);
 
-				//if (databaseValidationErrors.Count == 0)
-				//{
-				//	databaseContext.People.Add(person);
+				if (databaseValidationErrors.Count == 0)
+				{
+					databaseContext.People.Add(person);
 
-				//	databaseContext.SaveChanges();
+					databaseContext.SaveChanges();
 
-				//	System.Windows.Forms.MessageBox.Show("Your information was added successfully.");
-				//}
-				//else
-				//{
-				//	string errorMessages = string.Empty;
+					System.Windows.Forms.MessageBox.Show("Your information was added successfully.");
+				}
+				else
+				{
+					string errorMessages = string.Empty;
 
-				//	foreach (var currentDatabaseValidationError in databaseValidationErrors)
-				//	{
-				//		//errorMessages +=
-				//		//	currentDatabaseValidationError.ErrorMessage + "\n\r";
+					foreach (var currentDatabaseValidationError in databaseValidationErrors)
+					{
+						//errorMessages +=
+						//	currentDatabaseValidationError.ErrorMessage + "\n\r";
 
-				//		errorMessages +=
-				//			currentDatabaseValidationError.ErrorMessage + System.Environment.NewLine;
-				//	}
+						errorMessages +=
+							currentDatabaseValidationError.ErrorMessage + System.Environment.NewLine;
+					}
 
-				//	System.Windows.Forms.MessageBox.Show
-				//		(text: errorMessages,
-				//		caption: "خطا",
-				//		buttons: System.Windows.Forms.MessageBoxButtons.OK,
-				//		icon: System.Windows.Forms.MessageBoxIcon.Error,
-				//		defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button1,
-				//		options: System.Windows.Forms.MessageBoxOptions.RightAlign |
-				//		System.Windows.Forms.MessageBoxOptions.RtlReading);
-				//}
+					System.Windows.Forms.MessageBox.Show
+						(text: errorMessages,
+						caption: "خطا",
+						buttons: System.Windows.Forms.MessageBoxButtons.OK,
+						icon: System.Windows.Forms.MessageBoxIcon.Error,
+						defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button1,
+						options: System.Windows.Forms.MessageBoxOptions.RightAlign |
+						System.Windows.Forms.MessageBoxOptions.RtlReading);
+				}
 				// Solution (3)
 			}
 			catch (System.Exception ex)
