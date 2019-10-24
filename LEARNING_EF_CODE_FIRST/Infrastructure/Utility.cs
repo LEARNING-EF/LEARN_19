@@ -51,6 +51,16 @@ namespace Infrastructure
 				return;
 			}
 
+			var errorMessageLabels =
+				form.Controls.OfType<System.Windows.Forms.Control>()
+				.Where(current => current.Name.EndsWith("ErrorMessageLabel"))
+				.ToList();
+
+			foreach (var currentControl in errorMessageLabels)
+			{
+				currentControl.Text = string.Empty;
+			}
+
 			foreach (var error in errors)
 			{
 				string name =
