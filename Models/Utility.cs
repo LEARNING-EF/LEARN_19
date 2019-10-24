@@ -42,7 +42,7 @@
 				if (databaseContext != null)
 				{
 					databaseContext.Dispose();
-					databaseContext = null;
+					//databaseContext = null;
 				}
 			}
 		}
@@ -50,8 +50,7 @@
 		public static System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError>
 			CheckEntityValidation(DatabaseContext databaseContext, object entity)
 		{
-			System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError>
-				result = new System.Collections.Generic.List<System.Data.Entity.Validation.DbValidationError>();
+			System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError> result;
 
 			try
 			{
@@ -62,9 +61,17 @@
 				{
 					return validationResult.ValidationErrors;
 				}
+				else
+				{
+					result =
+						new System.Collections.Generic.List<System.Data.Entity.Validation.DbValidationError>();
+				}
 			}
 			catch (System.Exception ex)
 			{
+				result =
+					new System.Collections.Generic.List<System.Data.Entity.Validation.DbValidationError>();
+
 				result.Add(new System.Data.Entity.Validation.DbValidationError
 					(propertyName: string.Empty, errorMessage: "Unexpected Error! " + ex.Message));
 			}
@@ -95,7 +102,7 @@
 				if (databaseContext != null)
 				{
 					databaseContext.Dispose();
-					databaseContext = null;
+					//databaseContext = null;
 				}
 			}
 

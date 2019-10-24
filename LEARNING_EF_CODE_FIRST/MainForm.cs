@@ -16,11 +16,12 @@
 				databaseContext =
 					new Models.DatabaseContext();
 
-				Models.Person person = new Models.Person();
-
-				person.Age = 20;
-				person.FullName = "آب";
-				person.EmailAddress = "DariushT";
+				Models.Person person = new Models.Person
+				{
+					Age = 20,
+					FullName = "آب",
+					EmailAddress = "DariushT",
+				};
 
 				// Solution (1)
 				//databaseContext.People.Add(person);
@@ -60,7 +61,7 @@
 					foreach (var currentDatabaseValidationError in databaseValidationErrors)
 					{
 						//errorMessages +=
-						//	currentDatabaseValidationError.ErrorMessage + "\n\r";
+						//	currentDatabaseValidationError.ErrorMessage + "\r\n";
 
 						errorMessages +=
 							currentDatabaseValidationError.ErrorMessage + System.Environment.NewLine;
