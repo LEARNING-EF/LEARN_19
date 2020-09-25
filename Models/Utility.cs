@@ -82,8 +82,7 @@
 		public static System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError>
 			CheckEntityValidation(object entity)
 		{
-			System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError>
-				result = new System.Collections.Generic.List<System.Data.Entity.Validation.DbValidationError>();
+			System.Collections.Generic.ICollection<System.Data.Entity.Validation.DbValidationError> result = null;
 
 			DatabaseContext databaseContext = null;
 
@@ -92,7 +91,8 @@
 				databaseContext =
 					new DatabaseContext();
 
-				return CheckEntityValidation(databaseContext, entity);
+				result =
+					CheckEntityValidation(databaseContext, entity);
 			}
 			catch
 			{
